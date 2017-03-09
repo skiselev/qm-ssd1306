@@ -195,10 +195,9 @@ uint8_t ssd1306_write_cmd(uint8_t cmd)
 	spi_xfer.rx = &out;
 	spi_xfer.rx_len = 1;
 
-	qm_gpio_clear_pin(QM_GPIO_0, SSD1306_GPIO_CSN);
 	qm_gpio_clear_pin(QM_GPIO_0, SSD1306_GPIO_DC);
+	qm_spi_slave_select(SSD1306_SPI_BUS, SSD1306_SPI_SS);
 	qm_spi_transfer(SSD1306_SPI_BUS, &spi_xfer, &spi_status);
-	qm_gpio_set_pin(QM_GPIO_0, SSD1306_GPIO_CSN);
 
 	return out;
 }
@@ -216,10 +215,9 @@ uint8_t ssd1306_write_data(uint8_t data[], uint8_t len)
 	spi_xfer.rx = out;
 	spi_xfer.rx_len = len;
 
-	qm_gpio_clear_pin(QM_GPIO_0, SSD1306_GPIO_CSN);
 	qm_gpio_set_pin(QM_GPIO_0, SSD1306_GPIO_DC);
+	qm_spi_slave_select(SSD1306_SPI_BUS, SSD1306_SPI_SS);
 	qm_spi_transfer(SSD1306_SPI_BUS, &spi_xfer, &spi_status);
-	qm_gpio_set_pin(QM_GPIO_0, SSD1306_GPIO_CSN);
 	/* Switch the D/C pin to LOW, so that the on-board LED turns off */
 	qm_gpio_clear_pin(QM_GPIO_0, SSD1306_GPIO_DC);
 

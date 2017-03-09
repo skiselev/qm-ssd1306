@@ -48,7 +48,6 @@
 #define SSD1306_SPI_SS		QM_SPI_SS_0
 
 /* GPIO settings */
-#define SSD1306_GPIO_CSN	0	/* D2000 - F0,  D2000 CRB pin #10 (SS0) */
 #define SSD1306_GPIO_RST	9	/* D2000 - F9,  D2000 CRB pin #8  */
 #define SSD1306_GPIO_DC		24	/* D2000 - F24, D2000 CRB pin #9 (PWM1) */
 

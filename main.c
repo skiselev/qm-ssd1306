@@ -63,8 +63,7 @@ void setup()
 void setup()
 {
   	static qm_gpio_port_config_t gpio_cfg = {
-		.direction	= 	BIT(SSD1306_GPIO_CSN) |	/* SSD1306 - CS */
-						BIT(SSD1306_GPIO_RST) |	/* SSD1306 - RST */
+		.direction	=	BIT(SSD1306_GPIO_RST) |	/* SSD1306 - RST */
 						BIT(SSD1306_GPIO_DC),	/* SSD1306 - D/C */
 		.int_en			= 0x0,
 		.int_type		= 0x0,
@@ -80,8 +79,7 @@ void setup()
 		.clk_divider	= SPI_CLOCK_DIV,
 	};
 	/* Setup pin muxes */
-	/* Use GPIO for slave select due to bug in DesignWare SPI */
-	/* qm_pmux_select(QM_PIN_ID_0, QM_PMUX_FN_2);*/	/* SPI - SS0 */
+	qm_pmux_select(QM_PIN_ID_0, QM_PMUX_FN_2);	/* SPI - SS0 */
 	qm_pmux_select(QM_PIN_ID_16, QM_PMUX_FN_2);	/* SPI - SCK */
 	qm_pmux_select(QM_PIN_ID_17, QM_PMUX_FN_2);	/* SPI - MOSI */
 	qm_pmux_select(QM_PIN_ID_18, QM_PMUX_FN_2);	/* SPI - MISO */
