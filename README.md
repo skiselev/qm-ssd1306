@@ -1,9 +1,9 @@
 # qm-ssd1306
-SSD1306 OLED Display Driver for Intel QMSI 
+SSD1306 OLED Display Driver for Intel(r) QMSI 
 
 ## Introduction
 This driver provides support for OLED displays based on SSD1306 controller
-for projects developed using Intel Quark Microcontroller Software Interface (aka QMSI).
+for projects developed using Intel(r) Quark(tm) Microcontroller Software Interface (aka QMSI).
 The driver supports text output using 6x8 font. Graphics output is not supported yet.
 The driver supports displays with SPI and I2C interfaces.
 
@@ -38,7 +38,7 @@ Note that Adafruit 128x64 OLED and MikroElektronika OLED Click displays come pre
 
 ## Using the Driver
 
-### Building The Sample Application
+### Building the Sample Application
 1. Create a new QMSI based project, for example using Intel(r) System Studio for Microcontrollers
 2. Copy *main.c*, *ssd1306.h*, and *ssd1306.c* files to your project directory
 3. Build and run the project
