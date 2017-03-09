@@ -255,9 +255,9 @@ int ssd1306_init() {
 	/* reset SSD1306 */
 	qm_gpio_clear_pin(QM_GPIO_0, SSD1306_GPIO_RST);
 	/* MI9639BO-W datasheet recommends 100ms delay,
-         * which seems to be too high - 10ms works for me!
-         */
-	clk_sys_udelay(10000);			/* 10ms reset LOW delay */
+     * which seems to be too high - 10ms works for me!
+     */
+	clk_sys_udelay(10000);		/* 10ms reset LOW delay */
 	qm_gpio_set_pin(QM_GPIO_0, SSD1306_GPIO_RST);
 	clk_sys_udelay(5);			/* 5us reset HIGH delay */
 
@@ -300,8 +300,9 @@ int ssd1306_clear()
 	ssd1306_write_cmd(SSD1306_CMD_DISPLAY_OFF);
 
 	for (row = 0; row < SSD1306_LCD_HEIGHT / 8; row++) {
-		ssd1306_set_cursor(row, 0);
+		ssd1306_set_address(0, row);
 		for (column = 0; column < SSD1306_LCD_WIDTH; column += 8) {
+			/* Clear the display - 8x8 pixels at the time */
 			ssd1306_write_data(buffer, 8);
 		}
 	}
