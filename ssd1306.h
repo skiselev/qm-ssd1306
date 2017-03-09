@@ -30,8 +30,14 @@
 #define SSD1306_I2C		0
 
 /* Display resolution - modify according to the display type */
-#define SSD1306_LCD_WIDTH	96 /* 128 */
-#define SSD1306_LCD_HEIGHT	40 /* 64 */
+/* Adafruit 1.3" OLED - 128x64 */
+#define SSD1306_LCD_WIDTH	128
+#define SSD1306_LCD_HEIGHT	64
+/* MikroElektronika OLED Click - 96x39 */
+/*
+ * #define SSD1306_LCD_WIDTH	96
+ * #define SSD1306_LCD_HEIGHT	40
+ */
 
 /* I2C settings */
 #define SSD1306_I2C_ADDR	0x3C
