@@ -14,27 +14,32 @@ This driver has been tested with the following displays:
 * [Adafruit Monochrome 1.3" 128x64 OLED graphic display; Product ID: 938](https://www.adafruit.com/product/938)
 * [MikroElektronika OLED W click (96x39 resolution); Product ID: MIKROE-1649](https://shop.mikroe.com/click/display/oled-w)
 * A generic 0.96" 128x64 OLED display with 4-pin I2C header from a Chinese eBay seller
+* A generic 0.96" 128x64 OLED display (blue and yellow) with 7-pin SPI header from a Chinese eBay seller
 
 It is likely that it will work with other SSD1306-based displays with no or little modifications
 
 ### Wiring - I2C Interface
-* OLED **GND** goes to Quark D2000 board **GND**
-* OLED **VCC** or **Vin** goes to Quark D2000 board **5V**
-* (MikroElektronika OLED click only) OLED **3.3V** goes to Quark D2000 board **3.3V**
-* OLED **SDA** or **Data** goes to Quark D2000 board pin **A4** or **SDA**
-* OLED **SCL** or **Clk** goes to Quark D2000 board pin **A5** or **SCL**
+| Signal Name        | OLED Pin Name | Intel(r) Quark(tm) D2000 Board Pin Name | Notes                            |
+|--------------------|---------------|-----------------------------------------|----------------------------------|
+| Ground             | GND           | GND                                     |                                  |
+| Power Supply, 5V   | VCC, Vin      | 5V                                      |                                  |
+| Power Supply, 3.3V | 3.3V          | 3.3V                                    | MikroElektronika OLED Click only |
+| I2C Data           | SDA, Data     | A4 or SDA                               |                                  |
+| I2C Clock          | SCL, Clk      | A5 or SCL                               |                                  |
 
 Note that Adafruit 128x64 OLED and MikroElektronika OLED Click displays come preconfigured to work in SPI mode. It is needed to re-configure them for I2C mode by soldering jumpers (Adafruit) or moving 0 ohm resistors (MikroElektronika OLED Click).
 
 ### Wiring - SPI Interface
-* OLED **GND** goes to Quark D2000 board **GND**
-* OLED **VCC** or **Vin** goes to Quark D2000 board **5V**
-* (MikroElektronika OLED click only) OLED **3.3V** goes to Quark D2000 board **3.3V**
-* OLED **SDI** or **Data** goes to Quark D2000 board pin **11 (MOSI)**
-* OLED **SCK** or **Clk** goes to Quark D2000 board pin **13 (SCK)**
-* OLED **CS** goes to Quark D2000 board pin **10 (SS0)**
-* OLED **RST** or **Rst** goes to Quark D2000 board pin **8**
-* OLED **D/C** or **DC** goes to Quark D2000 board pin **9 (PWM1)**
+| Signal Name        | OLED Pin Name | Intel(r) Quark(tm) D2000 Board Pin Name | Notes                            |
+|--------------------|---------------|-----------------------------------------|----------------------------------|
+| Ground             | GND           | GND                                     |                                  |
+| Power Supply, 5V   | VCC, Vin      | 5V                                      |                                  |
+| Power Supply, 3.3V | 3.3V          | 3.3V                                    | MikroElektronika OLED Click only |
+| SPI MOSI           | SDI, Data, D1 | 11 (MOSI)                               |                                  |
+| SPI Clock          | SCK, Clk, D0  | 13 (SCK)                                |                                  |
+| SPI Chip Select    | CS            | 10 (SS0)                                |                                  |
+| OLED Reset         | RST, Rst, RES | 8                                       |                                  |
+| OLED Data/Control  | D/C, DC       | 9 (PWM1)                                |                                  |
 
 ## Using the Driver
 
