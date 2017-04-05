@@ -54,7 +54,7 @@ Note that Adafruit 128x64 OLED and MikroElektronika OLED Click displays come pre
 2. Copy *ssd1306.h* and *ssd1306.c* files to your project directory
 3. Add `include "ssd1306.h"` line in your main.c
 4. Edit *ssd1306.h*.
-..* Set `SSD1306_I2C` to '1' if using I2C interface, or to '0' if using SPI interface
-..* Set display resolution - `SSD1306_LCD_WIDTH` and `SSD1306_LCD_HEIGHT` to match your display configuration
+  * Set `SSD1306_I2C` to '1' if using I2C interface, or to '0' if using SPI interface
+  * Set display resolution - `SSD1306_LCD_WIDTH` and `SSD1306_LCD_HEIGHT` to match your display configuration
 5. Add I2C or SPI initialization code. Refer to `setup()` function in *main.c* included with this driver.
 6. From your code call `ssd1306_init()`, and then use other `ssd1306_*()` functions in your application as needed. Refer to *main.c* for usage example.
